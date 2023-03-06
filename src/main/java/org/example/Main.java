@@ -9,7 +9,7 @@ public class Main {
         Logger log=Logger.getLogger("Main");
         String accountName;
         long accountNo;
-        int choice=0;
+        int choice;
         log.info("Enter account holders name:");
         accountName=sc.nextLine();
         log.info("Enter the account number:");
