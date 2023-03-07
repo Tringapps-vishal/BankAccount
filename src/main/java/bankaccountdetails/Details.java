@@ -3,7 +3,6 @@ package bankaccountdetails;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 public class Details {
     Scanner s =new Scanner(System.in);
     Logger log= Logger.getLogger("Details");
@@ -40,4 +39,3 @@ public class Details {
         log.log(Level.INFO,()->"current balance is :"+currentBalance);
     }
 }
-
