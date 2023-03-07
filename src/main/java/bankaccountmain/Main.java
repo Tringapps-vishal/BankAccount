@@ -1,8 +1,8 @@
-package org.example;
+package bankaccountmain;
 
 import java.util.Scanner;
 import java.util.logging.Logger;
-import bankaccount.Details;
+import bankaccountdetails.Details;
 public class Main {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
