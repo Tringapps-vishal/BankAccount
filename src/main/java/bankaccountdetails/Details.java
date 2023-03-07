@@ -9,6 +9,7 @@ public class Details {
     private int currentBalance=0;
     private int depositedAmount;
     private int withdrawAmount;
+
     long accountNo;
     String accountName;
     public Details(long no, String name)
