@@ -40,3 +40,4 @@ public class Details {
         log.log(Level.INFO,()->"current balance is :"+currentBalance);
     }
 }
+
