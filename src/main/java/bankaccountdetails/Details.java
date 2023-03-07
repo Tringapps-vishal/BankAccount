@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class Details {
-    Scanner s =new Scanner(System.in);
+    protected Scanner s =new Scanner(System.in);
     Logger log= Logger.getLogger("Details");
     private int currentBalance=0;
     private int depositedAmount;
@@ -15,10 +15,6 @@ public class Details {
     {
         accountNo=no;
         accountName=name;
-    }
-    public Details()
-    {
-
     }
     public void deposit()
     {
