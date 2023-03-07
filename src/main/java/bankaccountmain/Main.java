@@ -15,6 +15,7 @@ public class Main {
         log.info("Enter the account number:");
         accountNo=sc.nextLong();
         Details d=new Details(accountNo,accountName);
+
         while(true)
         {
             log.info("1.Deposit          2.Withdrawal          3.Check balance             4.exit");
