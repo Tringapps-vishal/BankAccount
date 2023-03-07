@@ -23,7 +23,10 @@ public class Main {
                 case 1 -> d.deposit();
                 case 2 -> d.withdrawal();
                 case 3 -> d.balanceCheck();
-                case 4 -> System.exit(0);
+                case 4 -> {
+                    log.info("Exiting!!!");
+                    System.exit(0);
+                }
                 default -> log.info("Enter the invalid choice!!!");
             }
         }

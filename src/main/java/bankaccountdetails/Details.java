@@ -21,6 +21,7 @@ public class Details {
         log.info("Enter the amount to deposit:");
         depositedAmount =s.nextInt();
         currentBalance=currentBalance+ depositedAmount;
+        log.log(Level.INFO,()->depositedAmount+" has been deposited successfully!!!");
     }
     public void withdrawal()
     {
@@ -32,6 +33,7 @@ public class Details {
         }
         else{
             currentBalance=currentBalance- withdrawAmount;
+            log.log(Level.INFO,()->withdrawAmount+" has been withdrawn successfully!!!");
         }
     }
     public void balanceCheck()
