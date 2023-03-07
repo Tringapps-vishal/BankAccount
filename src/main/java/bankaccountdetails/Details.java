@@ -6,15 +6,19 @@ import java.util.logging.Logger;
 public class Details {
     Scanner s =new Scanner(System.in);
     Logger log= Logger.getLogger("Details");
-    int currentBalance=0;
-    int depositedAmount;
-    int withdrawAmount;
+    private int currentBalance=0;
+    private int depositedAmount;
+    private int withdrawAmount;
     long accountNo;
     String accountName;
-    public Details(long no, String nme)
+    public Details(long no, String name)
     {
         accountNo=no;
-        accountName=nme;
+        accountName=name;
+    }
+    public Details()
+    {
+
     }
     public void deposit()
     {
