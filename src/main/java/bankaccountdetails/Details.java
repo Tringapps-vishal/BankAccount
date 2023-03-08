@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class Details {
-    protected Scanner s =new Scanner(System.in);
+    protected Scanner sc =new Scanner(System.in);
     Logger log= Logger.getLogger("Details");
     private int currentBalance=0;
     private int depositedAmount;
@@ -16,18 +16,28 @@ public class Details {
     {
         accountNo=no;
         accountName=name;
+        log.info("Account Created Successfully!! with the Account Number "+accountNo);
     }
     public void deposit()
     {
-        log.info("Enter the amount to deposit:");
-        depositedAmount =s.nextInt();
-        currentBalance=currentBalance+ depositedAmount;
-        log.log(Level.INFO,()->depositedAmount+" has been deposited successfully!!!");
+        log.info("Enter the Account number:");
+        long tempAccountNumber=sc.nextLong();
+        if(tempAccountNumber==accountNo) {
+            log.info("Enter the amount to deposit:");
+            depositedAmount = sc.nextInt();
+            currentBalance = currentBalance + depositedAmount;
+            log.log(Level.INFO, () -> depositedAmount + " has been deposited successfully!!!");
+        }
+        else
+            log.info("Wrong Account number!!");
     }
     public void withdrawal()
     {
+        log.info("Enter the Account number:");
+        long tempAccountNumber=sc.nextLong();
+        if(tempAccountNumber==accountNo) {
         log.info("Enter the withdrawal amount:");
-        withdrawAmount =s.nextInt();
+        withdrawAmount =sc.nextInt();
         if(withdrawAmount >currentBalance)
         {
             log.info("SORRY !!!withdrawal amount is greater than current balance.");
@@ -35,7 +45,8 @@ public class Details {
         else{
             currentBalance=currentBalance- withdrawAmount;
             log.log(Level.INFO,()->withdrawAmount+" has been withdrawn successfully!!!");
-        }
+        }}else
+            log.info("Wrong Account number!!");
     }
     public void balanceCheck()
     {
