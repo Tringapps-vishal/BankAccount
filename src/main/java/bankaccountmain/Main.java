@@ -7,6 +7,6 @@ public class Main {
     public static void main(String[] args) {
         Logger log= Logger.getLogger("Main");
         log.info("WELCOME TO BANK OF VISHAL");
-        gd.getdata();
+        gd.getData();
     }
 }

@@ -1,21 +1,17 @@
 package bankaccountdetails;
 
 
+import bankaccountgetdata.GetData;
 import java.util.Scanner;
-import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-public class Details {
-    public HashMap<Long,Details> map=new HashMap<>();
+public class Details extends GetData {
     protected Scanner sc =new Scanner(System.in);
     Logger log= Logger.getLogger("Details");
-    private Details currentBalance=0;
-    private int depositedAmount;
-    private int withdrawAmount;
-
-    long accountNo;
-    String accountName;
-    double balance;
+    private double currentBalance=0;
+    private final long accountNo;
+    private final  String accountName;
+    private double balance;
     public Details(long no, String name,double balance)
     {
         accountNo=no;
@@ -25,6 +21,7 @@ public class Details {
     }
     public void deposit()
     {
+        int depositedAmount;
         log.info("Enter the Account number:");
         long tempAccountNumber=sc.nextLong();
         if(map.containsKey(tempAccountNumber)) {
@@ -39,12 +36,14 @@ public class Details {
     }
     public void withdrawal()
     {
+        int withdrawAmount;
         log.info("Enter the Account number:");
         long tempAccountNumber=sc.nextLong();
         if(map.containsKey(tempAccountNumber)) {
         log.info("Enter the withdrawal amount:");
         withdrawAmount =sc.nextInt();
-        if(withdrawAmount >currentBalance)
+        map.get(tempAccountNumber)=currentBalance;
+        if(withdrawAmount>currentBalance)
         {
             log.info("SORRY !!!withdrawal amount is greater than current balance.");
         }
@@ -58,6 +57,7 @@ public class Details {
     {   log.info("Enter the Account number:");
         long tempAccountNumber=sc.nextLong();
         if(map.containsKey(tempAccountNumber)) {
+            map.get(tempAccountNumber)=currentBalance;
             log.log(Level.INFO, () -> "current balance is :" + currentBalance);
         }
         else

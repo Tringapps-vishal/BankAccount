@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 public class GetData {
 
-    public void getdata()
+    public void getData()
     {
         Scanner sc=new Scanner(System.in);
         Logger log=Logger.getLogger("Main");
@@ -31,7 +31,7 @@ public class GetData {
                 case 1 -> d.deposit();
                 case 2 -> d.withdrawal();
                 case 3 -> d.balanceCheck();
-                case 4 -> getdata();
+                case 4 -> getData();
                 case 5 -> {
                     log.info("Exiting!!!");
                     System.exit(0);
