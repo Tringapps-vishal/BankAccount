@@ -49,7 +49,12 @@ public class Details {
             log.info("Wrong Account number!!");
     }
     public void balanceCheck()
-    {
-        log.log(Level.INFO,()->"current balance is :"+currentBalance);
+    {   log.info("Enter the Account number:");
+        long tempAccountNumber=sc.nextLong();
+        if(tempAccountNumber==accountNo) {
+            log.log(Level.INFO, () -> "current balance is :" + currentBalance);
+        }
+        else
+            log.info("Wrong Account number!!");
     }
 }
