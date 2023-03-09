@@ -13,8 +13,8 @@ public class Details  {
     long userNo;
     String userName;
     long userBalance;
-    private static final String NoMsg= "Enter the Account number:";
-    private static final String AccountMsg= "Enter the Account number:";
+    private static final String NUMBERMSG= "Enter the Account number:";
+    private static final String ACCOUNTMSG= "Enter the Account number:";
     private Details(long no, String name,long balance)
     {
         this.userNo=no;
@@ -43,7 +43,7 @@ public class Details  {
     }
     public void deposit()
     {
-        log.info(NoMsg);
+        log.info(NUMBERMSG);
         tempAccountNumber=sc.nextLong();
         if(map.containsKey(tempAccountNumber)) {
             log.info("Enter the amount to deposit:");
@@ -54,11 +54,11 @@ public class Details  {
             log.log(Level.INFO, () -> depositedAmount + " has been deposited successfully!!!");
         }
         else
-            log.info(AccountMsg);
+            log.info(ACCOUNTMSG);
     }
     public void withdrawal()
     {
-        log.info(NoMsg);
+        log.info(NUMBERMSG);
         tempAccountNumber=sc.nextLong();
         if(map.containsKey(tempAccountNumber)) {
         log.info("Enter the withdrawal amount:");
@@ -73,17 +73,17 @@ public class Details  {
             log.log(Level.INFO,()->withdrawAmount+" has been withdrawn successfully!!!");
         }
         }else
-            log.info(AccountMsg);
+            log.info(ACCOUNTMSG);
     }
     public void balanceCheck()
     {
-        log.info(NoMsg);
+        log.info(NUMBERMSG);
         tempAccountNumber=sc.nextLong();
         if(map.containsKey(tempAccountNumber)) {
             currentBalance=map.get(tempAccountNumber);
             log.log(Level.INFO, () -> "current balance is :" + currentBalance);
         }
         else
-            log.info(AccountMsg);
+            log.info(ACCOUNTMSG);
     }
 }
