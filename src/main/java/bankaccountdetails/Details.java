@@ -21,7 +21,6 @@ public class Details  {
     }
     public Details()
     {
-            log.info("");
     }
     private void msg()
     {
