@@ -41,6 +41,7 @@ public class Details  {
         d.msg();
         map.put(accountNo,balance);
     }
+
     public void deposit()
     {
         log.info(noMsg);
