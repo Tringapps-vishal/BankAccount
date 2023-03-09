@@ -27,6 +27,5 @@ public class GetData {
                 default -> log.info("Invalid choice!!!");
             }
         }
-
     }
 }
