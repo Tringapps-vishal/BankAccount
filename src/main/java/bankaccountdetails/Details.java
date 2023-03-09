@@ -15,8 +15,8 @@ public class Details  {
     long balance;
     private Details(long no, String name,long balance)
     {
-        accountNo=no;
-        accountName=name;
+        this.accountNo=no;
+        this.accountName=name;
         this.balance=balance;
         log.info("Account Created Successfully!!");
     }
