@@ -20,6 +20,7 @@ public class Details  {
         this.balance=balance;
         log.info("Account Created Successfully!!");
     }
+
     public Details()
     {
     }
