@@ -13,6 +13,8 @@ public class Details  {
     long userNo;
     String userName;
     long userBalance;
+    private String noMsg= "Enter the Account number:";
+    private String accountMsg= "Enter the Account number:";
     private Details(long no, String name,long balance)
     {
         this.userNo=no;
@@ -26,7 +28,7 @@ public class Details  {
     {
         log.info("Account Created Successfully!!");
     }
-    public void getdata()
+    public void getData()
     {
         String accountName;
         long accountNo;
@@ -41,7 +43,7 @@ public class Details  {
     }
     public void deposit()
     {
-        log.info("Enter the Account number:");
+        log.info(noMsg);
         tempAccountNumber=sc.nextLong();
         if(map.containsKey(tempAccountNumber)) {
             log.info("Enter the amount to deposit:");
@@ -52,11 +54,11 @@ public class Details  {
             log.log(Level.INFO, () -> depositedAmount + " has been deposited successfully!!!");
         }
         else
-            log.info("Account not found!!");
+            log.info(accountMsg);
     }
     public void withdrawal()
     {
-        log.info("Enter the Account number:");
+        log.info(noMsg);
         tempAccountNumber=sc.nextLong();
         if(map.containsKey(tempAccountNumber)) {
         log.info("Enter the withdrawal amount:");
@@ -71,17 +73,17 @@ public class Details  {
             log.log(Level.INFO,()->withdrawAmount+" has been withdrawn successfully!!!");
         }
         }else
-            log.info("Account not found!!");
+            log.info(accountMsg);
     }
     public void balanceCheck()
     {
-        log.info("Enter the Account number:");
+        log.info(noMsg);
         tempAccountNumber=sc.nextLong();
         if(map.containsKey(tempAccountNumber)) {
             currentBalance=map.get(tempAccountNumber);
             log.log(Level.INFO, () -> "current balance is :" + currentBalance);
         }
         else
-            log.info("Account not found!!");
+            log.info(accountMsg);
     }
 }

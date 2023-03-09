@@ -19,7 +19,7 @@ public class GetData {
                 case 1 -> d.deposit();
                 case 2 -> d.withdrawal();
                 case 3 -> d.balanceCheck();
-                case 4 -> d.getdata();
+                case 4 -> d.getData();
                 case 5 -> {
                     log.info("Exiting!!!");
                     System.exit(0);
