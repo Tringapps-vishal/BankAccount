@@ -9,7 +9,8 @@ public class GetData {
         Scanner sc=new Scanner(System.in);
         Logger log=Logger.getLogger("GetData");
         int choice;
-        Details d=new Details();
+        Details d;
+        d = new Details();
         while(true)
         {
             log.info("1.Deposit     2.Withdrawal       3.Check balance      4.Add Account       5.Exit");

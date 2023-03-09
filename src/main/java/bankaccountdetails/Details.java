@@ -10,19 +10,22 @@ public class Details  {
     private final HashMap<Long,Long> map=new HashMap<>();
     private long currentBalance=0;
     private long tempAccountNumber;
-    long accountNo;
-    String accountName;
-    long balance;
+    long userNo;
+    String userName;
+    long userBalance;
     private Details(long no, String name,long balance)
     {
-        this.accountNo=no;
-        this.accountName=name;
-        this.balance=balance;
-        log.info("Account Created Successfully!!");
+        this.userNo=no;
+        this.userName=name;
+        this.userBalance=balance;
     }
-
     public Details()
     {
+            log.info("");
+    }
+    private void msg()
+    {
+        log.info("Account Created Successfully!!");
     }
     public void getdata()
     {
@@ -34,6 +37,7 @@ public class Details  {
         accountNo=sc.nextLong();
         long balance=0;
         Details d=new Details(accountNo,accountName,balance);
+        d.msg();
         map.put(accountNo,balance);
     }
     public void deposit()
