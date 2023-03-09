@@ -1,26 +1,41 @@
 package bankaccountdetails;
 
 
-import bankaccountgetdata.GetData;
-
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-public class Details extends GetData {
+public class Details  {
     protected Scanner sc =new Scanner(System.in);
     Logger log= Logger.getLogger("Details");
-    private HashMap<Long,Long> map=new HashMap<>();
+    HashMap<Long,Long> map=new HashMap<>();
     private long currentBalance=0;
-    private final long accountNo;
-    private final  String accountName;
-    private double balance;
+     long accountNo;
+     String accountName;
+     double balance;
     public Details(long no, String name,double balance)
     {
         accountNo=no;
         accountName=name;
         this.balance=balance;
         log.info("Account Created Successfully!! with the Account Number "+accountNo);
+    }
+    public Details()
+    {
+    }
+    public void getdata()
+    {
+        Scanner sc=new Scanner(System.in);
+        Logger log=Logger.getLogger("Main");
+        String accountName;
+        long accountNo;
+        log.info("Enter account holders name:");
+        accountName=sc.nextLine();
+        log.info("Enter the account number:");
+        accountNo=sc.nextLong();
+        long balance=0;
+        Details d=new Details(accountNo,accountName,balance);
+        map.put(accountNo,balance);
     }
     public void deposit()
     {
@@ -30,8 +45,10 @@ public class Details extends GetData {
         if(map.containsKey(tempAccountNumber)) {
             log.info("Enter the amount to deposit:");
             depositedAmount = sc.nextInt();
-            map.get(tempAccountNumber)=currentBalance;
+            currentBalance= map.get(tempAccountNumber);
+
             currentBalance = currentBalance + depositedAmount;
+            map.replace(tempAccountNumber,currentBalance);
             log.log(Level.INFO, () -> depositedAmount + " has been deposited successfully!!!");
         }
         else
@@ -45,13 +62,13 @@ public class Details extends GetData {
         if(map.containsKey(tempAccountNumber)) {
         log.info("Enter the withdrawal amount:");
         withdrawAmount =sc.nextInt();
-        map.get(tempAccountNumber)=currentBalance;
+        currentBalance=map.get(tempAccountNumber);
         if(withdrawAmount>currentBalance)
         {
             log.info("SORRY !!!withdrawal amount is greater than current balance.");
         }
         else{
-            currentBalance=currentBalance- withdrawAmount;
+            currentBalance-=withdrawAmount;
             log.log(Level.INFO,()->withdrawAmount+" has been withdrawn successfully!!!");
         }}else
             log.info("Account not found!!");
@@ -60,43 +77,10 @@ public class Details extends GetData {
     {   log.info("Enter the Account number:");
         long tempAccountNumber=sc.nextLong();
         if(map.containsKey(tempAccountNumber)) {
-            map.get(tempAccountNumber)=currentBalance;
+            currentBalance=map.get(tempAccountNumber);
             log.log(Level.INFO, () -> "current balance is :" + currentBalance);
         }
         else
             log.info("Account not found!!");
-    }
-    public void getData()
-    {
-        Scanner sc=new Scanner(System.in);
-        Logger log=Logger.getLogger("Main");
-        String accountName;
-        long accountNo;
-        int choice;
-        log.info("Enter account holders name:");
-        accountName=sc.nextLine();
-        log.info("Enter the account number:");
-        accountNo=sc.nextLong();
-        long balance=0;
-
-        Details d=new Details(accountNo,accountName,balance);
-        map.put(accountNo,balance);
-
-        while(true)
-        {
-            log.info("1.Deposit     2.Withdrawal       3.Check balance      4.Add Account       5.Exit");
-            choice=sc.nextInt();
-            switch (choice) {
-                case 1 -> d.deposit();
-                case 2 -> d.withdrawal();
-                case 3 -> d.balanceCheck();
-                case 4 -> getData();
-                case 5 -> {
-                    log.info("Exiting!!!");
-                    System.exit(0);
-                }
-                default -> log.info("Enter the invalid choice!!!");
-            }
-        }
     }
 }
