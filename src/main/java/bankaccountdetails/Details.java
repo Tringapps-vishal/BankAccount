@@ -5,31 +5,30 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class Details  {
-    protected Scanner sc =new Scanner(System.in);
-    Logger log= Logger.getLogger("Details");
-    HashMap<Long,Long> map=new HashMap<>();
+    private final Scanner sc =new Scanner(System.in);
+    private final Logger log= Logger.getLogger("Details");
+    private final HashMap<Long,Long> map=new HashMap<>();
     private long currentBalance=0;
-     long accountNo;
-     String accountName;
-     double balance;
-    public Details(long no, String name,double balance)
+    private long tempAccountNumber;
+    long accountNo;
+    String accountName;
+    long balance;
+    private Details(long no, String name,long balance)
     {
         accountNo=no;
         accountName=name;
         this.balance=balance;
-        log.info("Account Created Successfully!! with the Account Number "+accountNo);
+        log.info("Account Created Successfully!!");
     }
     public Details()
     {
     }
     public void getdata()
     {
-        Scanner sc=new Scanner(System.in);
-        Logger log=Logger.getLogger("Main");
         String accountName;
         long accountNo;
         log.info("Enter account holders name:");
-        accountName=sc.nextLine();
+        accountName=sc.next();
         log.info("Enter the account number:");
         accountNo=sc.nextLong();
         long balance=0;
@@ -38,14 +37,13 @@ public class Details  {
     }
     public void deposit()
     {
-        int depositedAmount;
         log.info("Enter the Account number:");
-        long tempAccountNumber=sc.nextLong();
+        tempAccountNumber=sc.nextLong();
         if(map.containsKey(tempAccountNumber)) {
             log.info("Enter the amount to deposit:");
-            depositedAmount = sc.nextInt();
+            int depositedAmount = sc.nextInt();
             currentBalance= map.get(tempAccountNumber);
-            currentBalance = currentBalance + depositedAmount;
+            currentBalance +=depositedAmount;
             map.replace(tempAccountNumber,currentBalance);
             log.log(Level.INFO, () -> depositedAmount + " has been deposited successfully!!!");
         }
@@ -54,26 +52,27 @@ public class Details  {
     }
     public void withdrawal()
     {
-        int withdrawAmount;
         log.info("Enter the Account number:");
-        long tempAccountNumber=sc.nextLong();
+        tempAccountNumber=sc.nextLong();
         if(map.containsKey(tempAccountNumber)) {
         log.info("Enter the withdrawal amount:");
-        withdrawAmount =sc.nextInt();
+        int withdrawAmount =sc.nextInt();
         currentBalance=map.get(tempAccountNumber);
-        if(withdrawAmount>currentBalance)
-        {
-            log.info("SORRY !!!withdrawal amount is greater than current balance.");
+        if(withdrawAmount>currentBalance) {
+            log.info("SORRY !!!Insufficient Balance.");
         }
         else{
             currentBalance-=withdrawAmount;
+            map.replace(tempAccountNumber,currentBalance);
             log.log(Level.INFO,()->withdrawAmount+" has been withdrawn successfully!!!");
-        }}else
+        }
+        }else
             log.info("Account not found!!");
     }
     public void balanceCheck()
-    {   log.info("Enter the Account number:");
-        long tempAccountNumber=sc.nextLong();
+    {
+        log.info("Enter the Account number:");
+        tempAccountNumber=sc.nextLong();
         if(map.containsKey(tempAccountNumber)) {
             currentBalance=map.get(tempAccountNumber);
             log.log(Level.INFO, () -> "current balance is :" + currentBalance);

@@ -23,7 +23,7 @@ public class GetData {
                     log.info("Exiting!!!");
                     System.exit(0);
                 }
-                default -> log.info("Enter the invalid choice!!!");
+                default -> log.info("Invalid choice!!!");
             }
         }
     }
