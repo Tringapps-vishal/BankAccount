@@ -1,6 +1,5 @@
 package bankaccountdetails;
 
-
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -46,7 +45,6 @@ public class Details  {
             log.info("Enter the amount to deposit:");
             depositedAmount = sc.nextInt();
             currentBalance= map.get(tempAccountNumber);
-
             currentBalance = currentBalance + depositedAmount;
             map.replace(tempAccountNumber,currentBalance);
             log.log(Level.INFO, () -> depositedAmount + " has been deposited successfully!!!");
