@@ -13,8 +13,8 @@ public class Details  {
     long userNo;
     String userName;
     long userBalance;
-    private final String noMsg= "Enter the Account number:";
-    private final String accountMsg= "Enter the Account number:";
+    private static final String noMsg= "Enter the Account number:";
+    private static final String accountMsg= "Enter the Account number:";
     private Details(long no, String name,long balance)
     {
         this.userNo=no;
