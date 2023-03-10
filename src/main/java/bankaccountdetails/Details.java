@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-public class Details  {
+
+public class Details{
     private final Scanner sc =new Scanner(System.in);
     private final Logger log= Logger.getLogger("Details");
     private final HashMap<Long,Long> map=new HashMap<>();
